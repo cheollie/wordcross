@@ -13,30 +13,116 @@ public class MainMenu
 	c = con;
 	status = 'i';
     }
-    
+    public void arrowI(){
+	c.drawString("<", 257, 428);  
+	c.drawString(">", 465, 428);           
+    }
+    public void arrowP(){
+	c.drawString("<", 315, 464); 
+	c.drawString(">", 406, 464);            
+    }
+    public void arrowL(){
+	c.drawString("<", 255, 500);    
+	c.drawString(">", 467, 500);         
+    }
+    public void arrowE(){
+	c.drawString("<", 318, 535); 
+	c.drawString(">", 402, 535);            
+    }
+    public void textI(){
+	c.drawString("instructions", 280, 428);    
+    }
+    public void textP(){
+	c.drawString("play", 338, 463);    
+    }
+    public void textL(){
+	c.drawString("leaderboard", 278, 499);    
+    }
+    public void textE(){
+	c.drawString("exit", 341, 534);    
+    }
     public void mainMenu (){
 	c.clear();
-	c.drawString("Wordcross", 300, 200);
-	c.drawString("instructions", 300, 300);
-	c.drawString("leaderboard", 300, 350);
-	c.drawString("play!", 300, 400);
-	c.drawString("exit", 300, 450);
-	c.drawString("press < and > to navigate the options, then press enter to select", 200, 600);
+	
+	final Font TITLE = new Font ("Montserrat", Font.BOLD, 48);
+	final Font BODY = new Font ("Montserrat", Font.PLAIN, 30);
+	final Font SMALL = new Font ("Montserrat", Font.PLAIN, 12);
+	
+	final Color LPURPLE = new Color(232,231,252);
+	final Color MPURPLE = new Color(138, 138, 223);
+	final Color DPURPLE = new Color(87,88,208); 
+	final Color WHITE = new Color(255,255,255); 
+	final Color PWHITE = new Color(246, 245, 254);
+	
+	//bg
+	c.setColor(DPURPLE); 
+	c.fillRoundRect(50,50,632,572,20,20);
+	c.setColor(LPURPLE);        
+	c.fillRoundRect(54,54,624,564,16,16);  
+	
+	c.setColor(PWHITE);
+	c.fillRoundRect(222,362,292,25,2,2);
+	c.setColor(DPURPLE);
+	c.setFont(TITLE);
+	c.drawString("word cross", 230, 375);
+
+	c.setFont(BODY);
+	c.setColor(MPURPLE);
+	c.drawString("instructions", 280, 428);
+	c.drawString("play", 338, 463);
+	c.drawString("leaderboard", 278, 499);
+	c.drawString("exit", 341, 534);
+	
+	c.setFont(SMALL);  
+	c.setColor(DPURPLE);
+	c.drawString("press [<] and [>] to navigate between the options, then press [enter] to select", 139, 591);
+	
+	c.setFont(BODY);
+       
 	while(true){
-	    c.setColor(Color.white);
-	    c.fillRect(280, 280, 10, 200);
-	    c.setColor(Color.black);
 	    if(status == 'i'){
-		c.fillOval(280, 295, 5, 5);
-	    }
-	    else if(status == 'l'){
-		c.fillOval(280, 345, 5, 5);
+		c.setColor(LPURPLE);            
+		arrowP(); //cover p
+		arrowE(); //cover e
+		c.setColor(MPURPLE);
+		textP(); //lighten p   
+		textE(); //lighten e             
+		c.setColor(DPURPLE);
+		arrowI(); //draw i
+		textI(); //darken i              
 	    }
 	    else if(status == 'p'){
-		c.fillOval(280, 395, 5, 5);
+		c.setColor(LPURPLE);   
+		arrowI(); //cover i
+		arrowL(); //cover l
+		c.setColor(MPURPLE);
+		textI(); //lighten i   
+		textL(); //lighten l                 
+		c.setColor(DPURPLE);  
+		arrowP(); //draw p
+		textP(); //darken p
+	    }
+	    else if(status == 'l'){
+		c.setColor(LPURPLE);            
+		arrowP(); //cover p            
+		arrowE(); //cover e
+		c.setColor(MPURPLE);
+		textP(); //lighten p   
+		textE(); //lighten e                 
+		c.setColor(DPURPLE);            
+		arrowL(); //draw l
+		textL(); //darken l                
 	    }
 	    else if(status == 'e'){
-		c.fillOval(280, 445, 5, 5);
+		c.setColor(LPURPLE);  
+		arrowI(); //cover i
+		arrowL(); //cover l
+		c.setColor(MPURPLE);
+		textI(); //lighten i   
+		textL(); //lighten l                   
+		c.setColor(DPURPLE);            
+		arrowE(); //draw e
+		textE(); //darken e                
 	    }
 	    int input = c.getChar(); //user input key
 	    if(input == 10){ //if enter is pressed
@@ -48,27 +134,27 @@ public class MainMenu
 		    continue;
 		}
 		if(status == 'i' && input == 62){
-		    status = 'l';
-		    continue;
-		}
-		if(status == 'l' && input == 60){
-		    status = 'i';
-		    continue;
-		}
-		if(status == 'l' && input == 62){
 		    status = 'p';
 		    continue;
 		}
 		if(status == 'p' && input == 60){
-		    status = 'l';
+		    status = 'i';
 		    continue;
 		}
 		if(status == 'p' && input == 62){
+		    status = 'l';
+		    continue;
+		}
+		if(status == 'l' && input == 60){
+		    status = 'p';
+		    continue;
+		}
+		if(status == 'l' && input == 62){
 		    status = 'e';
 		    continue;
 		}
 		if(status == 'e' && input == 60){
-		    status = 'p';
+		    status = 'l';
 		    continue;
 		}
 		if(status == 'e' && input == 62){
