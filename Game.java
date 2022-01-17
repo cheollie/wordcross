@@ -34,14 +34,12 @@ public class Game
     
     //class variables
     static Console c; 
-    char[][] answerKey;
-    char[][] board;
+    char[][] answerKey, board;
     Word[] words;
     Square focused;
     int counter;
     char input;
-    boolean reloop;
-    boolean win;
+    boolean win, forward, backward, giveUp;
 	 
     public Game (Console con){ //constructor
 	c = con;
@@ -96,11 +94,26 @@ public class Game
 	    c.setFont(new Font("Serif", Font.PLAIN, 12));
 	}
 	c.drawRect(11+focused.col*30, 11+focused.row*30, 28, 28); //focused square
+	c.setCursor(10, 3);
+	c.println("press * to give up");
     }
     
     public void input (){ //takes user input and stores in board
+	forward = false;
+	backward = false;
 	input = c.getChar();
-	board[focused.row][focused.col] = input;
+	if(input == 60){
+	    backward = true;
+	}
+	else if(input == 62){
+	    forward = true;
+	}
+	else if(input == 42){
+	    giveUp = true;
+	}
+	else{
+	    board[focused.row][focused.col] = input;
+	}
     }
     
     public void update(){
@@ -108,17 +121,33 @@ public class Game
 	c.setColor(Color.white);
 	c.fillRect(20+focused.col*30, 20+focused.row*30, 15, 15);
 	c.drawRect(11+focused.col*30, 11+focused.row*30, 28, 28);
-	c.setColor(Color.black);
-	c.drawString(input+"", 22+focused.col*30, 30+focused.row*30); //printing character
-	if(words[counter].direction == 'a'){ //changing focus to next square
-	    focused.col++;
+	/*if(checkWord()){ //if word is correct
+	    c.setColor(new Color(200, 240, 190, 10));
+	    for(int i = 0; i < words[counter].word.length(); i++){
+		c.fillRect(10+words[counter].start.col*30, 10+words[counter].start.col*30, 30, 30);
+	    }
+	    c.println("correct word!");
 	}
 	else{
-	    focused.row++;
+	    c.setColor(Color.yellow);
+	    c.fillRect(11+words[counter].start.col*30, 10+words[counter].start.row*30, words[counter].word.length()*30, 30);
+	}*/
+	c.setColor(Color.black);
+	if(!forward && !backward){
+	    c.drawString(input+"", 22+focused.col*30, 30+focused.row*30); //printing character
+	    if(words[counter].direction == 'a'){ //changing focus to next square
+		focused.col++;
+	    }
+	    else{
+		focused.row++;
+	    }
+	}
+	else{
+	   counter++; 
 	}
 	//printing focused square
 	if(focused.row < 5 && focused.col < 5 && answerKey[focused.row][focused.col] != '#'){ //only prints focus square if it's a valid blank square
-	    c.drawRect(11+focused.col*30, 11+focused.row*30, 28, 28);
+	    //nothing changes here
 	}
 	else if(counter < 5){ //move to next word
 	    focused.row = words[counter+1].start.row;
@@ -131,7 +160,7 @@ public class Game
 	c.drawRect(11+focused.col*30, 11+focused.row*30, 28, 28);
     }
     
-    public boolean checkWin (){
+    public boolean checkWin (){ //check if whole board matches answerKey
 	for(int row = 0 ; row < answerKey.length; row++){
 	    for(int col = 0; col < answerKey[0].length; col++){
 		if(answerKey[row][col] != board[row][col]){
@@ -142,11 +171,34 @@ public class Game
 	return true;
     }
     
+    public boolean checkWord (){ //check if single word matches answerKey
+	for(int i = 0; i < words[counter].word.length(); i++){
+	    if(words[counter].direction == 'a'){
+		if(board[words[counter].start.row][words[counter].start.col + i] != words[counter].word.charAt(i)){
+		    return false;
+		}
+	    }
+	    else{
+		if(board[words[counter].start.row + i][words[counter].start.col] != words[counter].word.charAt(i)){
+		    return false;
+		}
+	    }
+	}
+	return true;
+    }
+    
     public void complete (){ //complete screen
 	c.clear();
-	c.println("yay ur done tm");
-	c.println("press any key to return to main menu");
-	c.getChar();
+	if(win){
+	    c.println("yay ur done tm");
+	    c.println("press any key to return to main menu");
+	    c.getChar();
+	}
+	else{
+	    c.println("better luck next time :(");
+	    c.println("press any key to return to main menu");
+	    c.getChar();
+	}
     }
     
     public void start () throws IOException{
@@ -155,18 +207,29 @@ public class Game
 	focused = new Square(0, 0);
 	display();
 	c.setCursor(10, 5);
-	while(!win){ //keep going until win
+	while(!win && !giveUp){ //keep going until win
 	    do{
 		focused.row = words[counter].start.row;
 		focused.col = words[counter].start.col; 
 		for(int i = 0; i < words[counter].word.length(); i++){ //each letter in word
+		    if(giveUp){
+			break;
+		    }
 		    input();
 		    update();
+		    if(forward){
+			break;
+		    }
 		    win = checkWin();
+		    if(win){
+			break;
+		    }
 		}
-		counter++;
+		if(!forward){
+		    counter++;
+		}
 	    }
-	    while(counter < words.length && !win); //rotating through word list
+	    while(counter < words.length && !win && !giveUp); //rotating through word list
 	    counter = 0;
 	}
 	complete();

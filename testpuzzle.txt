@@ -1,0 +1,12 @@
+hello
+a#o#k
+i#lsa
+###ky
+loki#
+6
+1 hello 0,0 a
+1 hai 0,0 d
+2 lol 0,2 d
+3 okay 0,4 d
+4 ski 2,3 d
+5 loki 4,0 a
