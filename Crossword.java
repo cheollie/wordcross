@@ -18,7 +18,7 @@ public class Crossword{ //Crossword class
 
     public void run () throws IOException{
 	s = new SplashScreen(c);
-	//s.splashScreen();
+	s.splashScreen();
 	m = new MainMenu(c);
 	while(true){
 	    m.mainMenu();
