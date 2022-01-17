@@ -26,7 +26,7 @@ public class SplashScreen
 	final Color LPURPLE = new Color(232,231,252);
 	final Color DPURPLE = new Color(87,88,208); 
 	final Color WHITE = new Color(255,255,255);         
-	final Font SPLASHSCREEN = new Font ("Barlow Condensed", Font.BOLD, 50);
+	final Font SPLASHSCREEN = new Font ("Montserrat", Font.BOLD, 42);
 	
 	//bg
 	c.setColor(DPURPLE); 
@@ -58,7 +58,7 @@ public class SplashScreen
 	    }
 	}        
 	String alteredTitle = "WORDCOSS";        
-	int[][] coords = new int[][] {{275,244},{280,317},{280,390},{280,463}, {205,390}, {354,390}, {429,390}, {502,390}};
+	int[][] coords = new int[][] {{268,244},{275,317},{275,390},{274,461}, {203,390}, {349,390}, {428,390}, {499,390}};
 	for (int i = 0; i < 8; i++){
 	    c.drawString(alteredTitle.charAt(i)+"", coords[i][0], coords[i][1]);
 	    try {
@@ -97,8 +97,8 @@ public class SplashScreen
 	    } catch (Exception e){}            
 	}
 	*/
-	c.setColor(new Color(255,255,255,20));
-	for (int i = 0; i < 50; i++){ //gradient
+	c.setColor(new Color(255,255,255,25));
+	for (int i = 0; i < 42; i++){ //gradient
 	    c.fillRect(0,0,720,660);
 	    try {
 		Thread.sleep(20);
