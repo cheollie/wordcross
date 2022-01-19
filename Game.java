@@ -510,8 +510,8 @@ public class Game
             File myFile = new File ("scoresDatabase.txt");      
             if (myFile.exists()){
                 PrintWriter pWrite = new PrintWriter (new FileWriter (myFile,true));    //overload with extra parameter (false) overwrites the file rather than appends to the file  
-              
-                pWrite.println(username+" "+(puzzle+"").toLowerCase()+" "+score);
+                puzzle = puzzle.toLowerCase();
+                pWrite.println(username+" "+puzzle+" "+score);
                 pWrite.close(); //closes PrintWriter
             } else {
                 new Message("The scores file could not be found.");
@@ -559,15 +559,13 @@ public class Game
                 c.drawString("alphanumeric characters only (no spaces), maximum 10 characters",200,495);
                 c.setFont(BODY2);
                 while (!validName){
-                    c.setColor(LPURPLE);
-                    c.fillRect(346,446,332,23);
                     c.setColor(DPURPLE);
-                    c.setTextColor(DPURPLE);
-                    c.setTextBackgroundColor(WHITE);  
                     char ch;
                     int i = 0;
+                    name = "";                    
                     do{
                         ch = c.getChar();
+                        c.setColor(DPURPLE);                        
                         c.drawString(ch+"",360+14*i,463);
                         if ((int) ch == 10){
                             break;
@@ -576,11 +574,13 @@ public class Game
                         i++;                         
                     } while ((int) ch != 10);
                     
-                    if (name.length() <= 10 && name.matches("^[a-zA-Z0-9]*$")){
+                    if ((name.length() <= 10 && name.length() >= 1) && name.matches("^[a-zA-Z0-9]*$")){
                         validName = true;
                     } else {
                         try { Thread.sleep(500); } catch (Exception e){}
-                        new Message("Invalid username, make sure to use a non empty and alphanumeric username");
+                        new Message("Invalid username, make sure to use a non empty and alphanumeric username that is less than 10 characters long.");
+                        c.setColor(LPURPLE);
+                        c.fillRect(346,446,332,23);                        
                         name = "";
                     }
                 }
@@ -630,6 +630,7 @@ public class Game
             }
         }    
     }
+
     
     public void start () throws IOException{ //starts the game & calls all necessary methods
         c.clear();
