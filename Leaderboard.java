@@ -16,7 +16,7 @@ import hsa.*; //gives access to hsa commands
 
 public class Leaderboard{
 
-    static Console c;  //declaration of instance variable of the Console class; the output console
+    Console c;  //declaration of instance variable of the Console class; the output console
     
     // declaration of font constants [variables are in full uppercase since they are constants are do not change throughout the program]    
     final Font TITLE = new Font ("Montserrat", Font.BOLD, 42); // font for title text for this screen
