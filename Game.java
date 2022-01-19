@@ -565,13 +565,19 @@ public class Game
                     name = "";                    
                     do{
                         ch = c.getChar();
-                        c.setColor(DPURPLE);                        
-                        c.drawString(ch+"",360+14*i,463);
                         if ((int) ch == 10){
                             break;
+                        } else if ((int) ch == 8){
+                            if (name.length()>0){
+                                name = name.substring(0,name.length()-1);
+                            }                            
+                        } else {
+                            name += ch;
                         }
-                        name += ch;  
-                        i++;                         
+                        c.setColor(LPURPLE);
+                        c.fillRect(346,446,332,23);                         
+                        c.setColor(DPURPLE);                         
+                        c.drawString(name,360,463);                          
                     } while ((int) ch != 10);
                     
                     if ((name.length() <= 10 && name.length() >= 1) && name.matches("^[a-zA-Z0-9]*$")){
