@@ -6,7 +6,6 @@ Description: This program draws the Goodbye screen for the Crossword game. This 
 ISP: Crossword
 */
 
-
 import java.awt.*;
 import hsa.Console;
 
