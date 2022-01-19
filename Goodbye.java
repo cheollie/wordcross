@@ -8,8 +8,8 @@ Description: This program draws the Goodbye screen for the Crossword game.
 ISP: Crossword
 */
 
-import java.awt.*;
-import hsa.Console;
+import java.awt.*; //gives access to java command library
+import hsa.Console; //gives access to the Console class from the hsa library
 
 public class Goodbye{ //the Goodbye class, draws the screen right before the user presses a key to close the game/window
 
