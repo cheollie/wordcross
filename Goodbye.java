@@ -64,6 +64,5 @@ public class Goodbye{ //the Goodbye class, draws the screen right before the use
         catch(Exception e){}
         
         c.close(); //close the window
-    }
-    
+    } 
 } // Goodbye class
