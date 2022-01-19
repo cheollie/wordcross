@@ -62,6 +62,9 @@ public class Game
     final Font HEADER1 = new Font ("Montserrat", Font.PLAIN, 22);
     final Font HEADER2 = new Font ("Montserrat", Font.PLAIN, 20);
     final Font CLUES = new Font ("Montserrat", Font.PLAIN, 14);
+    final Font BODY2 = new Font ("Montserrat", Font.PLAIN, 20);
+    final Font MEDIUM = new Font ("Montserrat", Font.PLAIN, 14);
+    final Font TINY = new Font ("Montserrat", Font.PLAIN, 10);
         
     final Color LPURPLE = new Color(232,231,252);
     final Color MPURPLE = new Color(138, 138, 223);
@@ -129,7 +132,7 @@ public class Game
             if(input == 10){ //if enter is pressed
                 break;
             }
-            else{
+            else if (input == 60 || input == 62) {
                 if(choice == 't' && (input == 60 || input == 62)){
                     choice = 'u';
                     continue;
@@ -138,6 +141,8 @@ public class Game
                     choice = 't';
                     continue;
                 }
+            } else {
+                new Message("Invalid input. Press [<] and [>] to navigate between the options and [enter] to select.");
             }
         }
     }
@@ -521,20 +526,11 @@ public class Game
     
      public void complete (){ //complete screens
         c.clear();
-        final Font TITLE = new Font ("Montserrat", Font.BOLD, 48);
-        final Font BODY = new Font ("Montserrat", Font.PLAIN, 20);
-        final Font MEDIUM = new Font ("Montserrat", Font.PLAIN, 14);
-        final Font SMALL = new Font ("Montserrat", Font.PLAIN, 12);
-        final Font TINY = new Font ("Montserrat", Font.PLAIN, 10);
-        
-        final Color LPURPLE = new Color(232,231,252);
-        final Color MPURPLE = new Color(138, 138, 223);
-        final Color DPURPLE = new Color(87,88,208); 
-        final Color WHITE = new Color(255,255,255); 
-        final Color PWHITE = new Color(246, 245, 254);
+
         String name = "";
         boolean validName = false;
-        //bg
+        
+        //background
         c.setColor(DPURPLE); 
         c.fillRoundRect(50,50,632,572,20,20);
         c.setColor(LPURPLE);        
@@ -547,21 +543,20 @@ public class Game
         if (win){
             c.setFont(TITLE);
             c.drawString("yay!",316,325);      
-            c.setFont(BODY);              
+            c.setFont(BODY2);              
             if (choice == 't'){ //timed
                 score -= t.mins*100-t.secs;
                 
                 c.drawString("Congrats! You finished board A",212,372);
                 c.drawString("in " + t.mins + " minutes and " + t.secs + " seconds",225,396);
                 c.drawString("resulting in a score of " + score + "!",238,420);
-               // c.drawString("Good job!",319,444);
                 
                 c.drawString("username:",240,464);
                 c.setFont(SMALL);
                 c.drawString("(to add you to the leaderboard)",274,481);
                 c.setFont(TINY);
                 c.drawString("alphanumeric characters only (no spaces), maximum 10 characters",200,495);
-                c.setFont(BODY);
+                c.setFont(BODY2);
                 while (!validName){
                     c.setColor(LPURPLE);
                     c.fillRect(346,446,332,23);
@@ -615,7 +610,7 @@ public class Game
         else{
             c.setFont(TITLE);        
             c.drawString("aw :(",308,325);
-            c.setFont(BODY);
+            c.setFont(BODY2);
             c.drawString("Better luck next time, play again",207,371);       
             c.drawString(" to give it another shot!",254,395);  
             c.setColor(DPURPLE);
@@ -629,7 +624,9 @@ public class Game
                 showAnswer();
             } else if (next == '<') {
                 break;
-            }           
+            } else {
+                new Message ("Invalid input. Please press [a] to see the answers or [<] to go back to the main menu.");
+            }
         }    
     }
     
