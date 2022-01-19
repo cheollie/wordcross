@@ -2,7 +2,9 @@
 Name: Chelsea Wong & Annie Wong
 Teacher: Ms. Basaraba
 Date: January 18th, 2022
-Description: This program draws the Goodbye screen for the Crossword game. This screen is the screen right before the user presses a key to close the game/window. 
+Description: This program draws the Goodbye screen for the Crossword game. 
+             This screen is the screen right before the user presses a key 
+             to close the game/window. 
 ISP: Crossword
 */
 
