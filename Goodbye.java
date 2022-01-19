@@ -13,7 +13,7 @@ import hsa.Console; //gives access to the Console class from the hsa library
 
 public class Goodbye{ //the Goodbye class, draws the screen right before the user presses a key to close the game/window
 
-    Console c; //declaration of instance variable of the Console class
+    Console c; //declaration of instance variable of the Console class; the output console
           
     // declaration of font constants [variables are in full uppercase since they are constants are do not change throughout the program]
     final Font TITLE = new Font ("Montserrat", Font.BOLD, 42); // font for title text for this screen
