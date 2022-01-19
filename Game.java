@@ -510,7 +510,8 @@ public class Game
             File myFile = new File ("scoresDatabase.txt");      
             if (myFile.exists()){
                 PrintWriter pWrite = new PrintWriter (new FileWriter (myFile,true));    //overload with extra parameter (false) overwrites the file rather than appends to the file  
-                pWrite.println(username+" "+puzzle+" "+score);
+              
+                pWrite.println(username+" "+(puzzle+"").toLowerCase()+" "+score);
                 pWrite.close(); //closes PrintWriter
             } else {
                 new Message("The scores file could not be found.");
@@ -547,13 +548,13 @@ public class Game
             if (choice == 't'){ //timed
                 score -= t.mins*100-t.secs;
                 
-                c.drawString("Congrats! You finished board A",212,372);
+                c.drawString("Congrats! You finished board "+puzzle,212,372);
                 c.drawString("in " + t.mins + " minutes and " + t.secs + " seconds",225,396);
                 c.drawString("resulting in a score of " + score + "!",238,420);
                 
                 c.drawString("username:",240,464);
                 c.setFont(SMALL);
-                c.drawString("(to add you to the leaderboard)",274,481);
+                c.drawString("(to add you to the leaderboard, press [enter] to proceed)",200,481);
                 c.setFont(TINY);
                 c.drawString("alphanumeric characters only (no spaces), maximum 10 characters",200,495);
                 c.setFont(BODY2);
