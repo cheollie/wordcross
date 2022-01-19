@@ -1,7 +1,16 @@
-// The "Game" class.
-import java.awt.*;
-import hsa.*;
-import java.io.*;
+/* 
+Name: Chelsea Wong & Annie Wong
+Teacher: Ms. Basaraba
+Date: January 18th, 2022
+Description: This program is the Game class for our Crossword game. 
+             This is composed of three main screens, the timed/untimed screen, 
+             the actual puzzle, and the completed screen.
+ISP: Crossword
+*/
+
+import java.awt.*; //gives access to java graphic related commands (ie. fonts and colors)
+import java.io.*; //gives access to the java input and output commands
+import hsa.*; //gives access to hsa commands
 
 public class Game
 {   
@@ -63,10 +72,10 @@ public class Game
     public Game (Console con){ //constructor
         c = con;
     }
-    
-    
+
     public void selection (){ //select either timed or untimed
         c.clear();
+        
         //background
         c.setColor(DPURPLE); 
         c.fillRoundRect(50,50,632,572,20,20);
@@ -75,17 +84,16 @@ public class Game
         
         //title
         c.setColor(PWHITE);
-        c.fillRoundRect(215,188,292,25,2,2);
+        c.fillRoundRect(115,313,502,27,2,2);
         c.setColor(DPURPLE);
         c.setFont(TITLE);
-        c.drawString("word cross", 230, 200);
+        c.drawString("select game mode", 133, 325);
         
         //text
         c.setFont(BODY);
         c.setColor(MPURPLE);
-        c.drawString("Please select your game mode:", 155, 300);
-        c.drawString("timed", 330, 400);
-        c.drawString("untimed", 315, 450);
+        c.drawString("timed", 322, 400);
+        c.drawString("untimed", 303, 450);
         
         c.setFont(SMALL);  
         c.setColor(DPURPLE);
@@ -100,22 +108,22 @@ public class Game
                 c.drawString("<", 285, 450); //cover u arrow 
                 c.drawString(">", 435, 450);  
                 c.setColor(MPURPLE);
-                c.drawString("untimed", 315, 450); //lighten u text 
+                c.drawString("untimed", 303, 450); //lighten u text 
                 c.setColor(DPURPLE);
                 c.drawString("<", 295, 400); //draw t arrow  
                 c.drawString(">", 420, 400); 
-                c.drawString("timed", 330, 400); //darken t text
+                c.drawString("timed", 322, 400); //darken t text
             }
             else if(choice == 'u'){
                 c.setColor(LPURPLE); 
                 c.drawString("<", 295, 400); //cover t arrow   
                 c.drawString(">", 420, 400); 
                 c.setColor(MPURPLE);
-                c.drawString("timed", 330, 400);  //lighten t text 
+                c.drawString("timed", 322, 400);  //lighten t text 
                 c.setColor(DPURPLE);
                 c.drawString("<", 285, 450); //draw u arrow 
                 c.drawString(">", 435, 450);
-                c.drawString("untimed", 315, 450);  //darken u text
+                c.drawString("untimed", 303, 450);  //darken u text
             }
             int input = c.getChar(); //user input key
             if(input == 10){ //if enter is pressed
