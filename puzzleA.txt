@@ -1,0 +1,72 @@
+A
+9
+babes#ugh
+ibex#spay
+bumpy#hip
+#toe#cone
+a#anvil#r
+band#rsi#
+oui#actor
+urns#lens
+tag#versa
+29
+1 babes 0,0 a
+1 bib 0,0 d
+2 abut 0,1 d
+3 bemoaning 0,2 d
+4 expend 0,3 d
+5 ugh 0,6 a
+5 upholster 0,6 d
+6 gain 0,7 d
+7 hyper 0,8 d
+8 ibex 1,0 a
+9 spay 1,5 a
+10 bumpy 2,0 a
+11 hip 2,6 a
+12 toe 3,1 a
+13 cone 3,5 a
+13 circle 3,5 d
+14 about 4,0 d
+15 anvil 4,2 a
+16 band 5,0 a
+17 aura 5,1 d
+18 rsi 5,5 a
+19 ions 5,7 d
+20 oui 6,0 a
+21 actor 6,4 a
+22 rsa 6,8 d
+23 urns 7,0 a
+24 lens 7,5 a
+25 tag 8,0 a
+26 versa 8,4 a
+17
+12
+1. infants
+5. yuck!
+8. mountain goat
+9. desex
+10. lumpy
+11. stylish
+12. heel & ...
+13. pine fruit
+15. smithy block
+16. elastic ring, ruber ...
+18. occupational overuse syndrome (I,I,I)
+20. french affirmative
+21. film star
+23. grecian vases
+24. spectacles glass
+25. luggage label
+26. in reverse order, vice ...
+1. apron top
+2. lie adjcacent to
+3. deploring
+4. exhaust
+5. stuff & cover(chair)
+6. acquire
+7. over-praised
+13. round shape
+14. around
+17. radiance
+19. charged atoms
+22. Charlize Theron's homeland(I,I,I)

@@ -1,0 +1,72 @@
+C
+9
+melee#key
+adam#limo
+tempt#lid
+#nil#dote
+n#nobel#l
+orgy#vim#
+tat#votes
+crop#trap
+hen#seedy
+29
+1 melee 0,0 a
+1 mat 0,0 d
+2 eden 0,1 d
+3 lamington 0,2 d
+4 employ 0,3 d
+5 key 0,6 a
+5 kilolitre 0,6 d
+6 emit 0,7 d
+7 yodel 0,8 d
+8 adam 1,0 a
+9 limo 1,5 a
+10 tempt 2,0 a
+11 lid 2,6 a
+12 nil 3,1 a
+13 dote 3,5 a
+13 devote 3,5 d
+14 notch 4,0 d
+15 nobel 4,2 a
+16 orgy 5,0 a
+17 rare 5,1 d
+18 vim 5,5 a
+19 mead 5,7 d
+20 tat 6,0 a
+21 votes 6,4 a
+22 spy 6,8 d
+23 crop 7,0 a
+24 trap 7,5 a
+25 hen 8,0 a
+26 seedy 8,4 a
+17
+12
+1. noisy confused fight
+5. under lock & ...
+8. ... & Eve
+9. luxury hire car
+10. live dangerously, ... fate
+11. jar top
+12. no score
+13. adore, ... on
+15. peace prize
+16. wild party
+18. vigour
+20. tit for ...
+21. takes part in ballat
+23. harvest
+24. snare
+25. rooster's mate
+26. sickly
+1. small rug
+2. unspoilt paradise
+3. Aussie choc-covered sponge slice
+4. utilise
+5. one thousand litres
+6. utter (cry)
+7. song of the Swiss
+13. dedicate
+14. score, ... up
+17. underdone (steak)
+19. honey liquor
+22. I ... with my little eye
