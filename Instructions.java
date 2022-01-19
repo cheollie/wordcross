@@ -17,7 +17,7 @@ public class Instructions //displays the instructions for the game for the user
     
     // declaration of font constants [variables are in full uppercase since they are constants are do not change throughout the program]       
     final Font TITLE = new Font ("Montserrat", Font.BOLD, 42); // font for title text for this screen
-    final Font BODY = new Font ("Montserrat", Font.PLAIN, 20); // font for body text for this screen
+    final Font BODY = new Font ("Montserrat", Font.PLAIN, 16); // font for body text for this screen
     final Font SMALL = new Font ("Montserrat", Font.PLAIN, 12); // font for small text for this screen
         
     // declaration of color constants [variables are in full uppercase since they are constants are do not change throughout the program]     
@@ -49,9 +49,21 @@ public class Instructions //displays the instructions for the game for the user
         
         //the body text (the actual instructions)
         c.setFont(BODY);
-        c.drawString("Welcome to Word Cross!",242,231);
-        c.drawString("This is a game where you can test your", 173,265);
-        c.drawString("vocabulary and quick thinking.",212,289);
+        c.drawString("Welcome to Word Cross!",266,222); //paragraph 1
+        c.drawString("This is a game where you can test your vocabulary and quick", 123,252); //paragraph 2
+        c.drawString("thinking. The objective of the game is to fill a board up with",128,272);
+        c.drawString("words given clues for those words. The given board is used to",122,292);
+        c.drawString("input the words you guess for the clues.",206,312);
+        c.drawString("There are two game modes, timed and untimed. For the timed",114,342); //paragraph 3
+        c.drawString("mode, you are timed, which will reflect your score that will",135,362);
+        c.drawString("show up in the leaderboard if you complete it. Additionally, you",115,382);
+        c.drawString("are given an option for hints if you get stuck, however, it adds",122,402);
+        c.drawString("60 secs to your time. For the untimed mode, you are not timed",116,422);
+        c.drawString("and will not show up on the leaderboard even if you finish it.",124,442);
+        c.drawString("To use the board, [<] and [>] can be used to navigate between",121,472); //paragraph 4
+        c.drawString("words, [?] is used to show a hint (for timed mode) and [*] is to",123,492);
+        c.drawString("give up.",336,512);
+        c.drawString("Have fun and enjoy the game!",247,542); //paragraph 5
         
         //instructions on keys        
         c.setFont(SMALL);
