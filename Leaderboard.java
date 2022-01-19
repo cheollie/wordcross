@@ -243,7 +243,7 @@ public class Leaderboard{ //draws the leaderboard screen and displays the highes
         if (!error){
             displayScores(); //shows top 10 scores of all puzzles upon opening unless error with file
         } else {
-            errorMessage();
+            errorMessage(); //display error message if error
         }
         
         while (true){

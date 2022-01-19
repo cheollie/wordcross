@@ -24,7 +24,7 @@ public class SplashScreen //draws the SplashScreen screen where it displays name
     final Color DPURPLE = new Color(87,88,208); 
     final Color WHITE = new Color(255,255,255);     
         
-    public SplashScreen(Console con){
+    public SplashScreen(Console con){ //constructor for the class SplashScreen
         c = con; //to use the Console object passed as a parameter when creating an instance of this class
     }
     public void cross(int x, int y, int n){ //method used to draw diagonals on the "blocked" boxes on the board
