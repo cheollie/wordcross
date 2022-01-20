@@ -28,6 +28,9 @@ public class SplashScreen //draws the SplashScreen screen where it displays name
         c = con; //to use the Console object passed as a parameter when creating an instance of this class
     }
     public void cross(int x, int y, int n){ //method used to draw diagonals on the "blocked" boxes on the board
+        //x is the x value of the top left point
+        //y is the y value of the top left point
+        //n is the width (and height)
         for (int i = 0; i < n; i+=9){ //uses a for loop to draw diagonal lines with a given increment between each line
             c.drawLine(x+i,y,x,y+i); 
             c.drawLine(x+i,y+n,x+n,y+i);
