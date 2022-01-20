@@ -607,7 +607,7 @@ public class Game
                 c.drawString("press [a] to view the answers, or press [<] to return to the main menu",245,596);                 
                 
             } else { //untimed
-                c.drawString("Congrats! You finished board A!",210,371);
+                c.drawString("Congrats! You finished board " + puzzle + "!",210,371);
                 c.drawString("Good job!",320,395);
                 c.setColor(DPURPLE);
                 c.setFont(SMALL);
