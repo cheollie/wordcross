@@ -84,11 +84,12 @@ public class Leaderboard{ //draws the leaderboard screen and displays the highes
         c.setColor(MDPURPLE);
     }
     
-    public String[][] sort(String arr[][]){ //sort method using bubble sort
+    public String[][] sort(String arr[][]){ //method that uses bubble sort to sort from high to low by the second index 
+        //arr is a 2d array
         int n = arr.length;
         for (int i = 0; i < n-1; i++){
             for (int j = 0; j < n-i-1; j++){
-                if (Integer.parseInt(arr[j][2]) < Integer.parseInt(arr[j+1][2])){ //to change sorting (high to low/low to high) 
+                if (Integer.parseInt(arr[j][2]) < Integer.parseInt(arr[j+1][2])){ //to change sorting (high to low/low to high) change < to >  
                     String[] t = arr[j]; //temp variable to store the one being replaced when the two indices get swapped
                     arr[j] = arr[j+1];
                     arr[j+1] = t;
@@ -213,6 +214,7 @@ public class Leaderboard{ //draws the leaderboard screen and displays the highes
         }
     }    
     public void displayScores( char ch ){ //overloaded method: displayScores(char) shows top scores of the plays for puzzle 'char'
+        //ch is the puzzle letter/identifier (like A, B, C, D, or E)
         c.setColor(LPURPLE); //covers the previous frame's scores
         c.fillRect(132,273,74,301);  
         c.fillRect(219,273,382,300);      
