@@ -71,6 +71,7 @@ public class Game
     final Font BODY2 = new Font ("Montserrat Regular", Font.PLAIN, 20);
     final Font MEDIUM = new Font ("Montserrat Regular", Font.PLAIN, 14);
     final Font TINY = new Font ("Montserrat Regular", Font.PLAIN, 9);
+    final Font CLUES = new Font ("Montserrat Regular", Font.PLAIN, 13);
         
     final Color LPURPLE = new Color(232,231,252);
     final Color MPURPLE = new Color(138, 138, 223);
@@ -245,7 +246,7 @@ public class Game
         c.drawString("across", 335, 430); //header for across
         c.drawString("down", 510, 95); //header for down
         //across clues
-        c.setFont(SMALL);
+        c.setFont(CLUES);
         for(int i = 0; i < (int)Math.ceil(numAcross*1.0/3); i++){ //each for loop for a column
             c.drawString(clues[i], 85, 467+i*20);
         }
@@ -538,7 +539,7 @@ public class Game
         c.drawString("across", 335, 430); //header for across
         c.drawString("down", 510, 95); //header for down
         //across clues
-        c.setFont(SMALL);
+        c.setFont(CLUES);
         for(int i = 0; i < (int)Math.ceil(numAcross*1.0/3); i++){ //each for loop for a column
             c.drawString(clues[i], 85, 467+i*20);
         }
