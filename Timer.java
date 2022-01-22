@@ -35,14 +35,15 @@ class Timer extends Thread //Timer class
                 secs++;
             }
             //displaying the timer
-            c.setColor(Color.black);
-            c.drawString(mins + ":" + secs, 617, 175);
+            c.setColor(new Color(87,88,208));
+            c.setFont(new Font("Montserrat", Font.PLAIN, 20));
+            c.drawString(mins + ":" + secs, 355, 74);
             try{ //delay
                 Thread.sleep(1000);
             } catch(InterruptedException e){}
             //erasing
             c.setColor(new Color(232,231,252));
-            c.fillRect(610, 165, 30, 20);
+            c.fillRect(350, 55, 60, 20);
         }
     }
 }
