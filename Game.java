@@ -245,7 +245,7 @@ public class Game
         c.drawString("across", 335, 430); //header for across
         c.drawString("down", 510, 95); //header for down
         //across clues
-        c.setFont(MEDIUM);
+        c.setFont(SMALL);
         for(int i = 0; i < (int)Math.ceil(numAcross*1.0/3); i++){ //each for loop for a column
             c.drawString(clues[i], 85, 467+i*20);
         }
@@ -538,7 +538,7 @@ public class Game
         c.drawString("across", 335, 430); //header for across
         c.drawString("down", 510, 95); //header for down
         //across clues
-        c.setFont(MEDIUM);
+        c.setFont(SMALL);
         for(int i = 0; i < (int)Math.ceil(numAcross*1.0/3); i++){ //each for loop for a column
             c.drawString(clues[i], 85, 467+i*20);
         }
