@@ -25,7 +25,14 @@ class Timer extends Thread //Timer class
         Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Italic.ttf"));
         Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-BoldItalic.ttf"));  
     }
-            
+
+    // declaration of font constants [variables are in full uppercase since they are constants are do not change throughout the program]  
+    final Font BODY = new Font("Montserrat Regular", Font.PLAIN, 20);
+    
+    // declaration of color constants [variables are in full uppercase since they are constants are do not change throughout the program]   
+    final Color LPURPLE = new Color(232,231,252);
+    final Color DPURPLE = new Color(87,88,208); 
+
     public Timer(Console con) throws java.awt.FontFormatException, java.io.IOException { //class constructor
         mins = 0;
         secs = 0;
@@ -35,6 +42,7 @@ class Timer extends Thread //Timer class
     }
         
     public void run(){ //run method
+        String secsStr, minsStr;
         while(!stop){ //while the timer isn't stopped
             //converting seconds to minutes
             if(secs == 59){
@@ -45,16 +53,18 @@ class Timer extends Thread //Timer class
                 secs++;
             }
             //displaying the timer
-            c.setColor(new Color(87,88,208));
-            c.setFont(new Font("Montserrat Regular", Font.PLAIN, 20));
-            if (secs < 10) c.drawString(mins + ":0" + secs, 355, 74); // if seconds is less than 10, add a 0 in front of it
-            else c.drawString(mins + ":" + secs, 355, 74);
+            c.setColor(DPURPLE);
+            c.setFont(BODY);
+            
+            secsStr = (secs < 10) ? "0"+secs : ""+secs; // if seconds is less than 10, add a 0 in front of it
+            minsStr = (mins < 10) ? "0"+mins : ""+secs; // if minutes is less than 10, add a 0 in front of it (not necessary but easier for formatting!)
+            c.drawString(minsStr + ":" + secsStr, 335, 91);
             try{
                 Thread.sleep(1000); //1 second delay between incrementing
             } catch(InterruptedException e){}
             //erasing
-            c.setColor(new Color(232,231,252));
-            c.fillRect(350, 55, 60, 20);
+            c.setColor(LPURPLE);
+            c.fillRect(335, 74, 70, 24);
         }
     }
 }
