@@ -1,62 +1,66 @@
 B
 9
-##sallow#
-#melee##u
-callingup
-only#sand
-sue###rsa
-tart#smut
-elsewhere
-d##seine#
-#latent##
-24
-1 sallow 0,2 a
-1 sellers 0,2 d
-2 ally 0,3 d
-3 lei 0,4 d
-4 lens 0,5 d
-5 melee 1,1 a
-5 manual 1,1 d
-6 update 1,8 d
-7 callingup 2,0 a
-7 costed 2,0 d
-8 garment 2,6 d
-9 unsure 2,7 d
-10 only 3,0 a
-11 sand 3,5 a
-12 sue 4,0 a
-13 rsa 4,6 a
-14 tart 5,0 a
-15 test 5,3 d
-16 smut 5,5 a
-16 shin 5,5 d
-17 elsewhere 6,0 a
-18 wee 6,4 d
-19 seine 7,3 a
-20 latent 8,1 a
+sea#each#
+honk#clad
+underrate
+tsar#owes
+t##o#b##e
+less#afar
+expectant
+spun#side
+#ores#lid
+26
+1 sea 0,0 a
+1 shuttles 0,0 d
+2 eons 0,1 d
+3 anda 0,2 d
+4 each 0,4 a
+5 acrobats 0,5 d
+6 claw 0,6 d
+7 hate 0,7 d
+8 honk 1,0 a
+9 kerosene 1,3 d
+10 clad 1,5 a
+11 deserted 1,8 d
+12 underrate 2,0 a
+13 tsar 3,0 a
+14 owes 3,5 a
+15 less 5,0 a
+16 expo 5,1 d
+17 spur 5,2 d
+18 afar 5,5 a
+19 fail 5,6 d
+20 andi 5,7 d
+21 expectant 6,0 a
+22 spun 7,0 a
+23 side 7,5 a
+24 ores 8,1 a
+25 lid 8,6 a
+14
 12
-12
-1. unhealthily yellow (skin)
-5. all-in fight
-7. conscripting (7,2)
-10. solely
-11. beach material
-12. prosecute
-13. Jacob Zuma's island (I,I,I)
-14. sour
-16. bawdy banter
-17. in another place
-19. French river
-20. undeveloped or inherent
-1. vendors
-2. wartime partner
-3. Hawaiian garland
-4. focusing glass
-5. installation guide
-6. renew
-7. priced (of work)
-8. clothing item
-9. not certain
-15. trial
-16. part of leg
-18. tiny
+1. mystified, all at ...
+4. per, for ...
+8. sound horn
+10. garbed
+12. underestimate
+13. pre-Soviet emperor
+14. has to repay
+15. smaller amount
+18. at a distance
+21. keenly waiting
+22. revolving rapidly
+23. line-up
+24. raw materials
+25. cover
+1. commuter vehicles
+2. great ages
+3. Two ... Half Men
+5. trapeze artists
+6. talon
+7. loathe
+9. paraffin oil
+11. abandoned
+16. international trade fair
+17. on the ... of the moment
+19. lose power
+20. Yul Brynner film, The King ...
