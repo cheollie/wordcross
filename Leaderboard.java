@@ -280,7 +280,7 @@ public class Leaderboard{ //draws the leaderboard screen and displays the highes
                     leave = true; //variable to break the while loop and leave the screen to go back to the main menu
                     break;
                 default: //if user presses none of the intended keys
-                    new Message("Invalid input. Press [space] to view top scores across all puzzles, [a] for puzzle A's top scores, [b] for puzzle B's top scores, [c] for puzzle C's top scores, [d] for puzzle D's top scores, [e] for puzzle E's top scoers, [x] to clear the scores, or [<] to return to main menu.");
+                    new Message("Invalid input. Press [space] to view top scores across all puzzles, [a] for puzzle A's top scores, [b] for puzzle B's top scores, [c] for puzzle C's top scores, [d] for puzzle D's top scores, [e] for puzzle E's top scores, [x] to clear the scores, or [<] to return to main menu.");
                     break;
             }
             if (leave) break; //break when leave is true (when set to true from '<')
