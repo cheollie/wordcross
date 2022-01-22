@@ -12,15 +12,17 @@ import java.awt.*; //gives access to java graphic related commands (ie. fonts an
 import hsa.Console; //gives access to Console class of the hsa library
 import java.io.*; //gives access to the input output commands
 
-public class Instructions throws java.awt.FontFormatException, java.io.IOException//displays the instructions for the game for the user
+public class Instructions //displays the instructions for the game for the user
 {
     Console c; //declaration of instance variable of the Console class; the output console
     
-    // imports the font files   
-    Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Regular.ttf"));
-    Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Bold.ttf"));
-    Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Italic.ttf"));
-    Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-BoldItalic.ttf"));  
+    // imports the font files 
+    public void loadFonts() throws java.awt.FontFormatException, java.io.IOException {
+        Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Regular.ttf"));
+        Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Bold.ttf"));
+        Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Italic.ttf"));
+        Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-BoldItalic.ttf"));  
+    }
 
     // declaration of font constants [variables are in full uppercase since they are constants are do not change throughout the program]   
     final Font TITLE = new Font ("Montserrat Bold", Font.PLAIN, 42); // font for title text for this screen
@@ -34,8 +36,9 @@ public class Instructions throws java.awt.FontFormatException, java.io.IOExcepti
     final Color WHITE = new Color(255,255,255); 
     final Color PWHITE = new Color(246, 245, 254);    
     
-    public Instructions (Console con){ //constructor for the class Instructions
+    public Instructions (Console con)  throws java.awt.FontFormatException, java.io.IOException{ //constructor for the class Instructions
         c = con; //to use the Console object passed as a parameter when creating an instance of this class
+        loadFonts();
     }
     
     public void instructions (){

@@ -32,7 +32,7 @@ public class Crossword{ //Crossword class
         c = new Console(33, 90, "Word Cross"); //creates new instance of the Console object with the title "Word Cross" and the specified size - 33 rows by 90 columns (660px by 720px)
     }
 
-    public void run () throws IOException{ //run method
+    public void run ()  throws java.awt.FontFormatException, java.io.IOException { //run method
         s = new SplashScreen(c); //creates new SplashScreen object and runs it
         s.splashScreen();
         m = new MainMenu(c); //creates new MainMenu object
@@ -58,7 +58,7 @@ public class Crossword{ //Crossword class
         }
     }
         
-    public static void main (String args[]) throws IOException{ //main method
+    public static void main (String args[])  throws java.awt.FontFormatException, java.io.IOException{ //main method
         Crossword c = new Crossword(); //declares and creates new instance of the Crossword object
         c.run(); 
     }

@@ -14,15 +14,17 @@ import java.util.*; //gives access to the java utility commands
 import java.io.*; //gives access to the java input and output commands
 import hsa.*; //gives access to hsa commands
 
-public class Leaderboard throws java.awt.FontFormatException, java.io.IOException{ //draws the leaderboard screen and displays the highest scores for each individual puzzle, all puzzles, and allows the user to clear the scores
+public class Leaderboard{ //draws the leaderboard screen and displays the highest scores for each individual puzzle, all puzzles, and allows the user to clear the scores
 
     Console c;  //declaration of instance variable of the Console class; the output console
     
-    // imports the font files   
-    Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Regular.ttf"));
-    Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Bold.ttf"));
-    Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Italic.ttf"));
-    Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-BoldItalic.ttf"));  
+    // imports the font files 
+    public void loadFonts() throws java.awt.FontFormatException, java.io.IOException {
+        Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Regular.ttf"));
+        Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Bold.ttf"));
+        Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Italic.ttf"));
+        Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-BoldItalic.ttf"));  
+    } 
 
     // declaration of font constants [variables are in full uppercase since they are constants are do not change throughout the program]    
     final Font TITLE = new Font ("Montserrat Bold", Font.PLAIN, 42); // font for title text for this screen
@@ -241,8 +243,9 @@ public class Leaderboard throws java.awt.FontFormatException, java.io.IOExceptio
         }
     }
     
-    public Leaderboard(Console con){ //constructor for Leaderboard class
+    public Leaderboard(Console con)  throws java.awt.FontFormatException, java.io.IOException { //constructor for Leaderboard class
         c = con; //to use the Console object passed as a parameter when creating an instance of this class
+        loadFonts();
     }       
     public void leaderboard (){
     

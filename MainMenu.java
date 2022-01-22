@@ -14,16 +14,18 @@ import java.awt.*; //gives access to java graphic related commands (ie. fonts an
 import hsa.*; //gives access to hsa commands
 import java.io.*; //gives access to the input output commands
 
-public class MainMenu throws java.awt.FontFormatException, java.io.IOException//displays screen where the user navigates between options to go to the instructions, game, leaderboard, and exit
+public class MainMenu //displays screen where the user navigates between options to go to the instructions, game, leaderboard, and exit
 {
     Console c; //declaration of instance variable of the Console class; the output console
     char status; //character variable to store the current status 
     
-    // imports the font files   
-    Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Regular.ttf"));
-    Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Bold.ttf"));
-    Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Italic.ttf"));
-    Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-BoldItalic.ttf"));  
+    // imports the font files 
+    public void loadFonts() throws java.awt.FontFormatException, java.io.IOException {
+        Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Regular.ttf"));
+        Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Bold.ttf"));
+        Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Italic.ttf"));
+        Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-BoldItalic.ttf"));  
+    }  
 
     // declaration of font constants [variables are in full uppercase since they are constants are do not change throughout the program]
     final Font TITLE = new Font ("Montserrat Bold", Font.PLAIN, 48); // font for title text for this screen
@@ -37,9 +39,10 @@ public class MainMenu throws java.awt.FontFormatException, java.io.IOException//
     final Color WHITE = new Color(255,255,255); 
     final Color PWHITE = new Color(246, 245, 254);
         
-    public MainMenu (Console con){ //constructor for the class MainMenu
+    public MainMenu (Console con)  throws java.awt.FontFormatException, java.io.IOException{ //constructor for the class MainMenu
         c = con; //to use the Console object passed as a parameter when creating an instance of this class
         status = 'i';
+        loadFonts();     
     }
     
     //methods to draw the brackets and options so it is easier when recoloring and covering when navigating between options

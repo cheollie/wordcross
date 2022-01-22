@@ -12,15 +12,17 @@ import java.awt.*; //gives access to java command library
 import hsa.Console; //gives access to the Console class from the hsa library
 import java.io.*; //gives access to the input output commands
 
-public class Goodbye throws java.awt.FontFormatException, java.io.IOException{ //the Goodbye class, draws the screen right before the user presses a key to close the game/window
+public class Goodbye{ //the Goodbye class, draws the screen right before the user presses a key to close the game/window
 
     Console c; //declaration of instance variable of the Console class; the output console
 
-    // imports the font files   
-    Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Regular.ttf"));
-    Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Bold.ttf"));
-    Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Italic.ttf"));
-    Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-BoldItalic.ttf"));  
+    // imports the font files 
+    public void loadFonts() throws java.awt.FontFormatException, java.io.IOException {
+        Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Regular.ttf"));
+        Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Bold.ttf"));
+        Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Italic.ttf"));
+        Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-BoldItalic.ttf"));  
+    } 
 
     // declaration of font constants [variables are in full uppercase since they are constants are do not change throughout the program]
     final Font TITLE = new Font ("Montserrat Bold", Font.PLAIN, 42); // font for title text for this screen
@@ -34,8 +36,9 @@ public class Goodbye throws java.awt.FontFormatException, java.io.IOException{ /
     final Color WHITE = new Color(255,255,255); 
     final Color PWHITE = new Color(246, 245, 254);    
     
-    public Goodbye (Console con){ //constructor for the class Goodbye
+    public Goodbye (Console con)  throws java.awt.FontFormatException, java.io.IOException{ //constructor for the class Goodbye
         c = con; //to use the Console object passed as a parameter when creating an instance of this class
+        loadFonts();
     }
     
     public void goodbye(){

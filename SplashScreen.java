@@ -13,16 +13,18 @@ import java.awt.*; //gives access to java graphic related commands (ie. fonts an
 import hsa.Console; //gives access to the Console class of the hsa library
 import java.io.*; //gives access to the input output commands
 
-public class SplashScreen throws java.awt.FontFormatException, java.io.IOException//draws the SplashScreen screen where it displays name of our game in a crossword style upon launch of the game
+public class SplashScreen //draws the SplashScreen screen where it displays name of our game in a crossword style upon launch of the game
 {
     Console c; //declaration of instance variable of the Console class; the output console    
     
-    // imports the font files   
-    Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Regular.ttf"));
-    Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Bold.ttf"));
-    Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Italic.ttf"));
-    Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-BoldItalic.ttf"));  
-
+    // imports the font files 
+    public void loadFonts() throws java.awt.FontFormatException, java.io.IOException {
+        Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Regular.ttf"));
+        Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Bold.ttf"));
+        Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Italic.ttf"));
+        Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-BoldItalic.ttf"));  
+    }
+    
     // declaration of font constants [variables are in full uppercase since they are constants are do not change throughout the program]  
     final Font SPLASHSCREEN = new Font ("Montserrat Bold", Font.PLAIN, 42); // font for splash screen text for this screen
     
@@ -31,8 +33,9 @@ public class SplashScreen throws java.awt.FontFormatException, java.io.IOExcepti
     final Color DPURPLE = new Color(87,88,208); 
     final Color WHITE = new Color(255,255,255);     
         
-    public SplashScreen(Console con){ //constructor for the class SplashScreen
+    public SplashScreen(Console con) throws java.awt.FontFormatException, java.io.IOException { //constructor for the class SplashScreen
         c = con; //to use the Console object passed as a parameter when creating an instance of this class
+        loadFonts();
     }
     public void cross(int x, int y, int n){ //method used to draw diagonals on the "blocked" boxes on the board
         //x is the x value of the top left point
