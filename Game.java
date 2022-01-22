@@ -54,15 +54,23 @@ public class Game
     String[] clues;
     Timer t;
         
+    // imports the font files 
+    public void loadFonts() throws java.awt.FontFormatException, java.io.IOException {
+        Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Regular.ttf"));
+        Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Bold.ttf"));
+        Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Italic.ttf"));
+        Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-BoldItalic.ttf"));  
+    }
+            
     //graphics variables
-    final Font TITLE = new Font ("Montserrat", Font.BOLD, 48);
-    final Font BODY = new Font ("Montserrat", Font.PLAIN, 30);
-    final Font SMALL = new Font ("Montserrat", Font.PLAIN, 12);
-    final Font HEADER1 = new Font ("Montserrat", Font.PLAIN, 22);
-    final Font HEADER2 = new Font ("Montserrat", Font.PLAIN, 20);
-    final Font BODY2 = new Font ("Montserrat", Font.PLAIN, 20);
-    final Font MEDIUM = new Font ("Montserrat", Font.PLAIN, 14);
-    final Font TINY = new Font ("Montserrat", Font.PLAIN, 9);
+    final Font TITLE = new Font ("Montserrat Bold", Font.PLAIN, 48);
+    final Font BODY = new Font ("Montserrat Regular", Font.PLAIN, 30);
+    final Font SMALL = new Font ("Montserrat Regular", Font.PLAIN, 12);
+    final Font HEADER1 = new Font ("Montserrat Regular", Font.PLAIN, 22);
+    final Font HEADER2 = new Font ("Montserrat Regular", Font.PLAIN, 20);
+    final Font BODY2 = new Font ("Montserrat Regular", Font.PLAIN, 20);
+    final Font MEDIUM = new Font ("Montserrat Regular", Font.PLAIN, 14);
+    final Font TINY = new Font ("Montserrat Regular", Font.PLAIN, 9);
         
     final Color LPURPLE = new Color(232,231,252);
     final Color MPURPLE = new Color(138, 138, 223);
@@ -70,8 +78,9 @@ public class Game
     final Color WHITE = new Color(255,255,255); 
     final Color PWHITE = new Color(246, 245, 254);
     
-    public Game (Console con) throws IOException, FontFormatException{ //constructor
+    public Game (Console con) throws java.awt.FontFormatException, java.io.IOException { //constructor
         c = con;
+        loadFonts();
     }
 
     public void selection (){ //select either timed or untimed
@@ -107,8 +116,8 @@ public class Game
         while(true){
             if(choice == 't'){
                 c.setColor(LPURPLE); 
-                c.drawString("<", 285, 450); //cover u arrow 
-                c.drawString(">", 435, 450);  
+                c.drawString("<", 275, 450); //cover u arrow 
+                c.drawString(">", 445, 450);  
                 c.setColor(MPURPLE);
                 c.drawString("untimed", 303, 450); //lighten u text 
                 c.setColor(DPURPLE);
@@ -123,8 +132,8 @@ public class Game
                 c.setColor(MPURPLE);
                 c.drawString("timed", 322, 400);  //lighten t text 
                 c.setColor(DPURPLE);
-                c.drawString("<", 285, 450); //draw u arrow 
-                c.drawString(">", 435, 450);
+                c.drawString("<", 275, 450); //draw u arrow 
+                c.drawString(">", 445, 450);
                 c.drawString("untimed", 303, 450);  //darken u text
             }
             int input = c.getChar(); //user input key
@@ -229,29 +238,31 @@ public class Game
         
         //printing the clues
         c.setColor(PWHITE);
-        c.fillRoundRect(509, 100, 83, 4, 2, 2);
-        c.fillRoundRect(325, 435, 83, 4, 2, 2);
+        c.fillRoundRect(500, 100, 83, 4, 2, 2); //underline for down
+        c.fillRoundRect(328, 436, 83, 4, 2, 2); //underline for across
         c.setColor(DPURPLE);
         c.setFont(HEADER1);
-        c.drawString("across", 331, 431);
-        c.drawString("down", 518, 74);
+        c.drawString("across", 335, 430); //header for across
+        c.drawString("down", 510, 95); //header for down
+        //across clues
         c.setFont(MEDIUM);
-        for(int i = 0; i < (int)Math.ceil(numAcross*1.0/3); i++){ //each for loop for a different column
-            c.drawString(clues[i], 85, 475+i*20);
+        for(int i = 0; i < (int)Math.ceil(numAcross*1.0/3); i++){ //each for loop for a column
+            c.drawString(clues[i], 85, 467+i*20);
         }
         for(int i = (int)Math.ceil(numAcross*1.0/3); i < (int)Math.ceil(numAcross*1.0/3)*2; i++){
-            c.drawString(clues[i], 285, 475+(i - (int)Math.ceil(numAcross*1.0/3))*20);
+            c.drawString(clues[i], 285, 467+(i - (int)Math.ceil(numAcross*1.0/3))*20);
         }
         for(int i = (int)Math.ceil(numAcross*1.0/3)*2; i < numAcross; i++){
-            c.drawString(clues[i], 485, 475+(i-(int)Math.ceil(numAcross*1.0/3)*2)*20);
+            c.drawString(clues[i], 485, 467+(i-(int)Math.ceil(numAcross*1.0/3)*2)*20);
         }
+        //down clues
         for(int i = 0; i < numDown; i++){
-            c.drawString(clues[i+numAcross], 439, 118+i*20);
+            c.drawString(clues[i+numAcross], 430, 129+i*20);
         }
         
         //printing the puzzle level
         c.setFont(HEADER2);
-        c.drawString("puzzle: " + puzzle, 95, 74);
+        c.drawString("puzzle: " + puzzle, 95, 91);
         
         //printing the board
         c.setColor(DPURPLE);
@@ -298,10 +309,10 @@ public class Game
         c.setFont(SMALL);
         c.setColor(DPURPLE);
         if(choice == 't'){
-            c.drawString("press [*] to give up, press [?] for hints, and press [<] and [>] to navigate between words", 130, 580);
+            c.drawString("press [*] to give up, press [?] for hints, and press [<] and [>] to navigate between words", 113, 597);
         }
         else{
-            c.drawString("press [*] to give up and press [<] and [>] to navigate between words", 180, 580);
+            c.drawString("press [*] to give up and press [<] and [>] to navigate between words", 167, 597);
         }
     }
     
@@ -520,35 +531,37 @@ public class Game
         
         //printing the clues
         c.setColor(PWHITE);
-        c.fillRoundRect(509, 100, 83, 4, 2, 2);
-        c.fillRoundRect(325, 435, 83, 4, 2, 2);
+        c.fillRoundRect(500, 100, 83, 4, 2, 2); //underline for down
+        c.fillRoundRect(328, 436, 83, 4, 2, 2); //underline for across
         c.setColor(DPURPLE);
         c.setFont(HEADER1);
-        c.drawString("across", 331, 431);
-        c.drawString("down", 518, 74);
+        c.drawString("across", 335, 430); //header for across
+        c.drawString("down", 510, 95); //header for down
+        //across clues
         c.setFont(MEDIUM);
         for(int i = 0; i < (int)Math.ceil(numAcross*1.0/3); i++){ //each for loop for a column
-            c.drawString(clues[i], 85, 475+i*20);
+            c.drawString(clues[i], 85, 467+i*20);
         }
         for(int i = (int)Math.ceil(numAcross*1.0/3); i < (int)Math.ceil(numAcross*1.0/3)*2; i++){
-            c.drawString(clues[i], 285, 475+(i - (int)Math.ceil(numAcross*1.0/3))*20);
+            c.drawString(clues[i], 285, 467+(i - (int)Math.ceil(numAcross*1.0/3))*20);
         }
         for(int i = (int)Math.ceil(numAcross*1.0/3)*2; i < numAcross; i++){
-            c.drawString(clues[i], 485, 475+(i-(int)Math.ceil(numAcross*1.0/3)*2)*20);
+            c.drawString(clues[i], 485, 467+(i-(int)Math.ceil(numAcross*1.0/3)*2)*20);
         }
+        //down clues
         for(int i = 0; i < numDown; i++){
-            c.drawString(clues[i+numAcross], 439, 118+i*20);
+            c.drawString(clues[i+numAcross], 430, 129+i*20);
         }
         
         //printing the header
         c.setFont(HEADER2);
         c.setColor(DPURPLE);
-        c.drawString("puzzle " + puzzle + " answer", 95, 74);
+        c.drawString("puzzle " + puzzle + " answer", 95, 91);
         
         //printing the footer
         c.setFont(SMALL);
         c.setColor(DPURPLE);
-        c.drawString("press [<] to return to the main menu", 255, 580);
+        c.drawString("press any key to return to the main menu", 241, 597);
         
         //printing the board bg
         c.setColor(DPURPLE);
@@ -603,6 +616,7 @@ public class Game
                 }
             }
         }
+        c.getChar();
     }
     
     public void addScores(String username,char puzzle,int score){ //adds scores to the leaderboard
@@ -655,7 +669,7 @@ public class Game
                 c.setFont(SMALL);
                 c.drawString("(to add you to the leaderboard, press [enter] to proceed)",200,481);
                 c.setFont(TINY);
-                c.drawString("alphanumeric characters only (no spaces), maximum 10 characters",200,495);
+                c.drawString("alphanumeric characters only (no spaces), maximum 10 characters",217,495);
                 c.setFont(BODY2);
                 while (!validName){
                     c.setColor(DPURPLE);
@@ -731,6 +745,7 @@ public class Game
             next = c.getChar();
             if (next == 'a'){
                 showAnswer();
+                break;
             } else if (next == '<') {
                 break;
             } else {
@@ -739,7 +754,7 @@ public class Game
         }    
     }
     
-    public void start () throws IOException{ //starts the game & calls all necessary methods
+    public void start () throws java.awt.FontFormatException, java.io.IOException { //starts the game & calls all necessary methods
         c.clear();
         selection();
         readFile();
