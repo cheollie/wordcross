@@ -100,8 +100,9 @@ public class Game
         c.setColor(DPURPLE);
         c.drawString("press [<] and [>] to navigate between the options, then press [enter] to select", 139, 591);
 
-        choice = 't';
+        choice = 't'; //defalt choice
         
+        //selection for timed or untimed
         c.setFont(BODY);
         while(true){
             if(choice == 't'){
@@ -139,7 +140,7 @@ public class Game
                     choice = 't';
                     continue;
                 }
-            } else {
+            } else { //errortrapping
                 new Message("Invalid input. Press [<] and [>] to navigate between the options and [enter] to select.");
             }
         }
@@ -149,8 +150,7 @@ public class Game
     public void readFile () throws IOException{ //reads puzzle file for all necessary info
         //selects random puzzle
         BufferedReader br = new BufferedReader(new FileReader("puzzleA.txt"));
-        //int random = (int) (Math.random()*5+1);
-        int random = 2;
+        int random = (int) (Math.random()*5+1); //generates random int
         if(random == 1){
             br = new BufferedReader(new FileReader("puzzleA.txt"));
         }
@@ -236,7 +236,7 @@ public class Game
         c.drawString("across", 331, 431);
         c.drawString("down", 518, 74);
         c.setFont(MEDIUM);
-        for(int i = 0; i < (int)Math.ceil(numAcross*1.0/3); i++){
+        for(int i = 0; i < (int)Math.ceil(numAcross*1.0/3); i++){ //each for loop for a different column
             c.drawString(clues[i], 85, 475+i*20);
         }
         for(int i = (int)Math.ceil(numAcross*1.0/3); i < (int)Math.ceil(numAcross*1.0/3)*2; i++){
@@ -527,7 +527,7 @@ public class Game
         c.drawString("across", 331, 431);
         c.drawString("down", 518, 74);
         c.setFont(MEDIUM);
-        for(int i = 0; i < (int)Math.ceil(numAcross*1.0/3); i++){
+        for(int i = 0; i < (int)Math.ceil(numAcross*1.0/3); i++){ //each for loop for a column
             c.drawString(clues[i], 85, 475+i*20);
         }
         for(int i = (int)Math.ceil(numAcross*1.0/3); i < (int)Math.ceil(numAcross*1.0/3)*2; i++){
