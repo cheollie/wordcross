@@ -11,8 +11,9 @@ ISP: Crossword
 
 import java.awt.*; //gives access to java graphic related commands (ie. fonts and colors)
 import hsa.Console; //gives access to the Console class of the hsa library
+import java.io.*; //gives access to the input output commands
 
-public class SplashScreen //draws the SplashScreen screen where it displays name of our game in a crossword style upon launch of the game
+public class SplashScreen throws java.awt.FontFormatException, java.io.IOException//draws the SplashScreen screen where it displays name of our game in a crossword style upon launch of the game
 {
     Console c; //declaration of instance variable of the Console class; the output console    
     

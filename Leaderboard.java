@@ -14,7 +14,7 @@ import java.util.*; //gives access to the java utility commands
 import java.io.*; //gives access to the java input and output commands
 import hsa.*; //gives access to hsa commands
 
-public class Leaderboard{ //draws the leaderboard screen and displays the highest scores for each individual puzzle, all puzzles, and allows the user to clear the scores
+public class Leaderboard throws java.awt.FontFormatException, java.io.IOException{ //draws the leaderboard screen and displays the highest scores for each individual puzzle, all puzzles, and allows the user to clear the scores
 
     Console c;  //declaration of instance variable of the Console class; the output console
     

@@ -12,8 +12,9 @@ ISP: Crossword
 
 import java.awt.*; //gives access to java graphic related commands (ie. fonts and colors)
 import hsa.*; //gives access to hsa commands
+import java.io.*; //gives access to the input output commands
 
-public class MainMenu //displays screen where the user navigates between options to go to the instructions, game, leaderboard, and exit
+public class MainMenu throws java.awt.FontFormatException, java.io.IOException//displays screen where the user navigates between options to go to the instructions, game, leaderboard, and exit
 {
     Console c; //declaration of instance variable of the Console class; the output console
     char status; //character variable to store the current status 

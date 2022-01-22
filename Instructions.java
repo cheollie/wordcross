@@ -10,8 +10,9 @@ ISP: Crossword
 
 import java.awt.*; //gives access to java graphic related commands (ie. fonts and colors)
 import hsa.Console; //gives access to Console class of the hsa library
+import java.io.*; //gives access to the input output commands
 
-public class Instructions //displays the instructions for the game for the user
+public class Instructions throws java.awt.FontFormatException, java.io.IOException//displays the instructions for the game for the user
 {
     Console c; //declaration of instance variable of the Console class; the output console
     

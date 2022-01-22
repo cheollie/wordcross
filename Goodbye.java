@@ -10,8 +10,9 @@ ISP: Crossword
 
 import java.awt.*; //gives access to java command library
 import hsa.Console; //gives access to the Console class from the hsa library
+import java.io.*; //gives access to the input output commands
 
-public class Goodbye{ //the Goodbye class, draws the screen right before the user presses a key to close the game/window
+public class Goodbye throws java.awt.FontFormatException, java.io.IOException{ //the Goodbye class, draws the screen right before the user presses a key to close the game/window
 
     Console c; //declaration of instance variable of the Console class; the output console
 
