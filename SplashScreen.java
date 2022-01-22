@@ -16,10 +16,16 @@ public class SplashScreen //draws the SplashScreen screen where it displays name
 {
     Console c; //declaration of instance variable of the Console class; the output console    
     
-    // declaration of font constants [variables are in full uppercase since they are constants are do not change throughout the program]        
-    final Font SPLASHSCREEN = new Font ("Montserrat", Font.BOLD, 42); // font for splash screen text for this screen
+    // imports the font files   
+    Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Regular.ttf"));
+    Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Bold.ttf"));
+    Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Italic.ttf"));
+    Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-BoldItalic.ttf"));  
+
+    // declaration of font constants [variables are in full uppercase since they are constants are do not change throughout the program]  
+    final Font SPLASHSCREEN = new Font ("Montserrat Bold", Font.PLAIN, 42); // font for splash screen text for this screen
     
-    // declaration of color constants [variables are in full uppercase since they are constants are do not change throughout the program]       
+    // declaration of color constants [variables are in full uppercase since they are constants are do not change throughout the program]   
     final Color LPURPLE = new Color(232,231,252);
     final Color DPURPLE = new Color(87,88,208); 
     final Color WHITE = new Color(255,255,255);     

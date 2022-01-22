@@ -14,11 +14,17 @@ import hsa.Console; //gives access to the Console class from the hsa library
 public class Goodbye{ //the Goodbye class, draws the screen right before the user presses a key to close the game/window
 
     Console c; //declaration of instance variable of the Console class; the output console
-          
+
+    // imports the font files   
+    Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Regular.ttf"));
+    Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Bold.ttf"));
+    Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-Italic.ttf"));
+    Font.createFont(Font.TRUETYPE_FONT, (InputStream) new FileInputStream("Fonts\\Montserrat-BoldItalic.ttf"));  
+
     // declaration of font constants [variables are in full uppercase since they are constants are do not change throughout the program]
-    final Font TITLE = new Font ("Montserrat", Font.BOLD, 42); // font for title text for this screen
-    final Font BODY = new Font ("Montserrat", Font.PLAIN, 20); // font for body text for this screen
-    final Font SMALL = new Font ("Montserrat", Font.PLAIN, 12); // font for small text for this screen 
+    final Font TITLE = new Font ("Montserrat Bold", Font.PLAIN, 42); // font for title text for this screen
+    final Font BODY = new Font ("Montserrat Regular", Font.PLAIN, 20); // font for body text for this screen
+    final Font SMALL = new Font ("Montserrat Regular", Font.PLAIN, 12); // font for small text for this screen 
     
     // declaration of color constants [variables are in full uppercase since they are constants are do not change throughout the program]
     final Color LPURPLE = new Color(232,231,252);
